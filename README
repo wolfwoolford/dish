@@ -38,6 +38,6 @@ A: It overwrites the PROMPT_COMMAND environment
 
 Q: What is the format of the logged commands?
 A: history_index command YYYYMMDD_HH:MM:SS command_return_code
-   - Hopefull trivial to brew your own if not to your
+   - Hopefully trivial to brew your own if not to your
      liking
 
