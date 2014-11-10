@@ -1,10 +1,12 @@
 
 # Did - what command *did* I run here again?
 
-If you are a developer that runs lots of commands, in many different directories,
-and if sometimes you find yourself scratching your head trying to recollect a
-particularly long or complicated command that you previously ran ... then scratch 
-no more! Simply
+If you are a developer that runs lots of commands, 
+in many different directories, and if sometimes you
+find yourself scratching your head trying to
+recollect a particularly long or complicated
+command that you previously ran ... then scratch no
+more! Simply:
 
 source didrc
 
