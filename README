@@ -19,3 +19,21 @@ source didrc
 did # exported function echoes local commands to stdout
 
 Happy hacking!
+
+
+
+Q: Where is the command history stored?
+A: It's configurable, but defaults to /home/$USER/.did/
+   - this is essential - you don't want your history
+     ending up in tar balls or anything else you
+     share 
+   - delete this directory and you lose every logged
+     command
+
+Q: How does it spy?
+A: It overwrites the PROMPT_COMMAND environment
+   variable (The contents of this variable are executed 
+   as a regular Bash command just before Bash displays
+   a prompt).
+
+
