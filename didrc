@@ -17,7 +17,7 @@ function did_log_command()
     local outdir=$did_dir$(pwd)
     mkdir -p $outdir
    
-    history_file=$outdir/$did_history_log
+    local history_file=$outdir/$did_history_log
     
     
     if [[ -s $history_file ]]; then
