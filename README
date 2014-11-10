@@ -26,18 +26,18 @@ Q: Where is the command history stored?
 A: It's configurable, but defaults to /home/$USER/.did/
    - this is essential - you don't want your history
      ending up in tar balls or anything else you
-     share 
+     share. 
    - delete this directory and you lose every logged
-     command
+     command.
 
 Q: How does it spy?
-A: It overwrites the PROMPT_COMMAND environment
+A: It overwrites the PROMPT_COMMAND environment.
    variable (The contents of this variable are executed 
    as a regular Bash command just before Bash displays
    a prompt).
 
 Q: What is the format of the logged commands?
-A: history_index command YYYYMMDD_HH:MM:SS command_return_code
+A: history_index command YYYYMMDD_HH:MM:SS command_return_code.
    - Hopefully trivial to brew your own if not to your
-     liking
+     liking.
 
