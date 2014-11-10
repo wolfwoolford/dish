@@ -5,8 +5,8 @@ If you are a developer that runs lots of commands,
 in many different directories, and if sometimes you
 find yourself scratching your head trying to
 recollect a particularly long or complicated
-command that you previously ran ... then scratch no
-more! Simply:
+command that you previously ran in this particular
+directory ... then scratch no more! Simply:
 
 source didrc
 
@@ -31,7 +31,7 @@ A: It's configurable, but defaults to /home/$USER/.did/
      command.
 
 Q: How does it spy?
-A: It overwrites the PROMPT_COMMAND environment.
+A: It overwrites the PROMPT_COMMAND environment
    variable (The contents of this variable are executed 
    as a regular Bash command just before Bash displays
    a prompt).
