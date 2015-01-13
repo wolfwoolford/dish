@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-did_dir=/home/$USER/.did
+did_dir="/home/$USER/.did"
 did_history_log=did_history
 
 function did_log_command()
@@ -14,32 +14,32 @@ function did_log_command()
         return
     fi
 
-    local outdir=$did_dir$(pwd)
-    mkdir -p $outdir
+    local outdir="$did_dir$(pwd)"
+    mkdir -p "$outdir"
    
-    local history_file=$outdir/$did_history_log
+    local history_file="$outdir/$did_history_log"
     
     
-    if [[ -s $history_file ]]; then
+    if [[ -s "$history_file" ]]; then
         local command_id=$(echo $command | awk '{print $1}')
-        local prev_id=$(tail -n 1 $history_file | awk '{print $1}')
+        local prev_id=$(tail -n 1 "$history_file" | awk '{print $1}')
         # repeated/same command
         if [[ $command_id -eq $prev_id ]]; then
             return;
         fi
     fi 
 
-    echo "$command $(date +%Y%m%d_%H:%M:%S) $status" >> $history_file
+    echo "$command $(date +%Y%m%d_%H:%M:%S) $status" >> "$history_file"
 }
 
 # what i did in this directory
 function did()
 {
     local outdir="$did_dir$(pwd)"
-    mkdir -p $outdir
+    mkdir -p "$outdir"
     local history_file="$outdir/$did_history_log"
-    if [[ -s $history_file ]]; then
-        cat $history_file
+    if [[ -s "$history_file" ]]; then
+        cat "$history_file"
     fi
 }
 
