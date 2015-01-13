@@ -35,9 +35,12 @@ function did_log_command()
 # what i did in this directory
 function did()
 {
-    local outdir=$did_dir$(pwd)
+    local outdir="$did_dir$(pwd)"
     mkdir -p $outdir
-    cat $outdir/$did_history_log
+    local history_file="$outdir/$did_history_log"
+    if [[ -s $history_file ]]; then
+        cat $history_file
+    fi
 }
 
 
