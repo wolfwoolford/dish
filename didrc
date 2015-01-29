@@ -1,6 +1,6 @@
 #!/bin/bash
 
-did_dir="/home/$USER/.did"
+did_dir="$HOME/.did"
 did_history_log=did_history
 
 function did_log_command()
