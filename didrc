@@ -36,7 +36,7 @@ function did_log_command()
 function did()
 {
     local outdir="$did_dir$(pwd)"
-    mkdir -p "$outdir"
+    [ ! -d "$outdir"  ] && mkdir -p "$outdir"  # This takes care of a corner case where did is the first command run in a new directory
     local history_file="$outdir/$did_history_log"
     if [[ -s "$history_file" ]]; then
         cat "$history_file"
