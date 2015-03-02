@@ -1,25 +1,16 @@
 
-# Did - what command *did* I run here again?
+# Did - what command *did* I run in this directory?
 
-If you are a developer that runs lots of commands, 
-in many different directories, and if sometimes you
-find yourself scratching your head trying to
-recollect a particularly long or complicated
-command that you previously ran in this particular
-directory ... then scratch no more! Simply:
+Did is a directory specific command line history logger for Linux style terminals.
+It logs command history to a text file in a customisable location and prints commands
+previously run in the current directory using a simple command : 'did'
 
-source didrc
 
-...
-... lots of commands later
-...
+Typically usage pattern is
 
-# developer thinks "what did I do?"
-# solution:
-did # exported function echoes local commands to stdout
-
-Happy hacking!
-
+# in .bashrc or similar
+source path_to/didrc
+# that is all (the did command is an exported function, see didrc).
 
 
 Q: Where is the command history stored?
