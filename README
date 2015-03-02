@@ -1,9 +1,10 @@
 
 # Did - what command *did* I run in this directory?
 
-Did is a directory specific command line history logger for Linux style terminals.
-It logs command history to a text file in a customisable location and prints commands
-previously run in the current directory using a simple command : 'did'
+Did is a directory specific command line history logger for Linux style 
+terminals. It logs command history to a text file in a customisable
+location and prints commands previously run in the current directory
+using a simple command : 'did'
 
 
 Typically usage pattern is
