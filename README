@@ -1,5 +1,7 @@
 
-# Did - what command *did* I run in this directory?
+# Did - what _did_ I do in this directory
+
+Directory specific command line history.
 
 Did is a directory specific command line history logger for Linux style 
 terminals. It logs command history to a text file in a customisable
@@ -22,7 +24,7 @@ A: It's configurable, but defaults to /home/$USER/.did/
    - delete this directory and you lose every logged
      command.
 
-Q: How does it spy?
+Q: How does it capture command history?
 A: It overwrites the PROMPT_COMMAND environment
    variable (The contents of this variable are executed 
    as a regular Bash command just before Bash displays
