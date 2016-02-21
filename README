@@ -10,8 +10,7 @@ using a simple command : 'did'
 Underneath the hood, did logs command history to a text file in a customisable location.
 
 Typically usage pattern is
-# in .bashrc or similar
-source path_to/didrc
+source path_to/didrc # i.e. in your .bashrc
 echo hello world
 did
 
