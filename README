@@ -4,17 +4,16 @@
 Directory specific command line history.
 
 Did is a directory specific command line history logger for Linux style 
-terminals. It logs command history to a text file in a customisable
-location and prints commands previously run in the current directory
+terminals. Did prints every command ever run in the current directory
 using a simple command : 'did'
 
+Underneath the hood, did logs command history to a text file in a customisable location.
 
 Typically usage pattern is
-
 # in .bashrc or similar
 source path_to/didrc
-# that is all (the did command is an exported function, see didrc).
-
+echo hello world
+did
 
 Q: Where is the command history stored?
 A: It's configurable, but defaults to /home/$USER/.did/
@@ -29,9 +28,4 @@ A: It overwrites the PROMPT_COMMAND environment
    variable (The contents of this variable are executed 
    as a regular Bash command just before Bash displays
    a prompt).
-
-Q: What is the format of the logged commands?
-A: history_index command YYYYMMDD_HH:MM:SS command_return_code.
-   - Hopefully trivial to brew your own if not to your
-     liking.
 
