@@ -52,7 +52,11 @@ function didg()
 # If the user hasn't specified the PROMPT_COMMAND then set it up
 # otherwise we'll assume they know what they are doing 
 # and will add did_log_command manually to their custom PROMPT_COMMAND
-if  [[ -z ${PROMPT_COMMAND} ]]; then
+# 
+# disabling this at will potentially block users from accessing the functionality,
+# and they won't know why! An experienced bash practicioner should know
+# how to deal with this, if it's an issue!
+#if  [[ -z ${PROMPT_COMMAND} ]]; then
     export PROMPT_COMMAND=did_log_command
-fi
+#fi
 

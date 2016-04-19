@@ -10,9 +10,16 @@ using a simple command : 'did'
 Underneath the hood, did logs command history to a text file in a customisable location.
 
 Typically usage pattern is
-source path_to/didrc # i.e. in your .bashrc
-echo hello world
-did
+
+host:/home/dave/test_did
+$ source path_to/didrc # or place in .bashrc
+host:/home/dave/test_did
+$ echo hello world
+hello world
+host:/home/dave/test_did
+$ did
+1015  echo hello world 20160419_10:12:18 0
+host:/home/dave/test_did
 
 Q: Where is the command history stored?
 A: It's configurable, but defaults to /home/$USER/.did/
