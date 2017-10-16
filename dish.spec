@@ -2,12 +2,12 @@
 %global srcname dish
 Name: %{srcname}		
 Version: %{version_base}
-Release: %{version_release}%{org_tag}%{dist}
+Release: %{version_release}%{dist}
 Summary: Localised bash history logging and searching	
+Source: %{name}-%{version}.tgz
 
-License:	
+License: MIT	
 URL: https://github.com/%{owner}/dish		
-Source0: https://github.com/%{owner}/%{srcname}/archive/v%{version_base}.tar.gz
 BuildArch: noarch
 
 %description
@@ -20,10 +20,8 @@ using a simple command : 'dish'
 %prep
 %setup -q
 
-%build
-mkdir -p %{buildroot}%{_sysconfdir}/xdg/%{srcname}/
-
 %install
+mkdir -p %{buildroot}%{_sysconfdir}/xdg/%{srcname}/
 install -m 0644 -t %{buildroot}%{_sysconfdir}/xdg/%{srcname}/ dishrc
 
 %files
