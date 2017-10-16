@@ -1,28 +1,28 @@
 
-# Did - what _did_ I do in this directory
+# Dish - what did I do in this directory?
 
-Directory specific command line history.
+DIrectory Specific command line History.
 
-Did is a directory specific command line history logger for Linux style 
-terminals. Did prints every command ever run in the current directory
-using a simple command : 'did'
+Dish is a directory specific command line history logger for bash  
+terminals. Dish prints every command ever run in the current directory
+using a simple command : 'dish'
 
-Underneath the hood, did logs command history to a text file in a customisable location.
+Underneath the hood, dish logs command history to a text file in a customisable location.
 
 Typically usage pattern is
 
-host:/home/dave/test_did
-$ source path_to/didrc # or place in .bashrc
-host:/home/dave/test_did
+host:/home/dave/test_dish
+$ source /etc/xdg/dish/dishrc # or place in .bashrc
+host:/home/dave/test_dish
 $ echo hello world
 hello world
-host:/home/dave/test_did
-$ did
+host:/home/dave/test_dish
+$ dish
 1015  echo hello world 20160419_10:12:18 0
-host:/home/dave/test_did
+host:/home/dave/test_dish
 
 Q: Where is the command history stored?
-A: It's configurable, but defaults to /home/$USER/.did/
+A: It's configurable, but defaults to $HOME/.dish/
    - this is essential - you don't want your history
      ending up in tar balls or anything else you
      share. 

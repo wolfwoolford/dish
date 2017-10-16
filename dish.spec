@@ -1,21 +1,21 @@
 %global owner wolfwoolford
-%global srcname did
+%global srcname dish
 Name: %{srcname}		
 Version: %{version_base}
 Release: %{version_release}%{org_tag}%{dist}
 Summary: Localised bash history logging and searching	
 
 License:	
-URL: https://github.com/%{owner}/did		
+URL: https://github.com/%{owner}/dish		
 Source0: https://github.com/%{owner}/%{srcname}/archive/v%{version_base}.tar.gz
 BuildArch: noarch
 
 %description
-Directory specific command line history.
+DIrectory Specific command line History.
 
-Did is a directory specific command line history logger for Linux style 
-terminals. Did prints every command ever run in the current directory
-using a simple command : 'did'
+Dish is a directory specific command line history logger for bash
+terminals. Dish prints every command ever run in the current directory
+using a simple command : 'dish'
 
 %prep
 %setup -q
@@ -24,7 +24,7 @@ using a simple command : 'did'
 mkdir -p %{buildroot}%{_sysconfdir}/xdg/%{srcname}/
 
 %install
-install -m 0644 -t %{buildroot}%{_sysconfdir}/xdg/%{srcname}/ didrc
+install -m 0644 -t %{buildroot}%{_sysconfdir}/xdg/%{srcname}/ dishrc
 
 %files
 %doc README

@@ -1,32 +1,32 @@
 #!/bin/bash
 
-did_dir="$HOME/.did"
-did_history_log=did_history
+dish_dir="$HOME/.did"
+dish_history_log=dish_history
 
 # Keep track of the last directory we were in so that commands like "cd" and "pop" get recorded in the dirctory that they were invoked.
-did_previous_wd="${PWD}"
+dish_previous_wd="${PWD}"
 
-function did_log_command()
+function dish_log_command()
 {
     local status=$?
     local command=$(history +1)
     if [[ ! -n "$command" ]]; then return; fi
     
-    if echo $(pwd) | grep ^$did_dir 2>&1 > /dev/null; then
+    if echo $(pwd) | grep ^$dish_dir 2>&1 > /dev/null; then
         # don't store history of the history directory itself
         return
     fi
     
-    local outdir="${did_dir}${PWD}"  # Assume that the command didn't change the working directory
+    local outdir="${dish_dir}${PWD}"  # Assume that the command didn't change the working directory
     # Now check if the command did actually change the working directory
-    if [[ "${PWD}" != "${did_history_log}" ]]; then
-        outdir="${did_dir}${did_previous_wd}"
-        did_previous_wd=${PWD}
+    if [[ "${PWD}" != "${dish_history_log}" ]]; then
+        outdir="${dish_dir}${dish_previous_wd}"
+        dish_previous_wd=${PWD}
     fi
 
     mkdir -p "$outdir"
    
-    local history_file="$outdir/$did_history_log"
+    local history_file="$outdir/$dish_history_log"
     
     
     if [[ -s "$history_file" ]]; then
@@ -42,30 +42,30 @@ function did_log_command()
 }
 
 # what i did in this directory
-function did()
+function dish()
 {
-    local outdir="$did_dir$(pwd)"
+    local outdir="$dish_dir$(pwd)"
     [ ! -d "$outdir"  ] && mkdir -p "$outdir"  # This takes care of a corner case where did is the first command run in a new directory
-    local history_file="$outdir/$did_history_log"
+    local history_file="$outdir/$dish_history_log"
     if [[ -s "$history_file" ]]; then
         cat "$history_file"
     fi
 }
 
 # Global did
-function didg()
+function dishg()
 {
-    find "$did_dir" -name "$did_history_log" -print0|xargs -0 cat
+    find "$dish_dir" -name "$dish_history_log" -print0|xargs -0 cat
 }
 
 # If the user hasn't specified the PROMPT_COMMAND then set it up
 # otherwise we'll assume they know what they are doing 
-# and will add did_log_command manually to their custom PROMPT_COMMAND
+# and will add dish_log_command manually to their custom PROMPT_COMMAND
 # 
 # disabling this at will potentially block users from accessing the functionality,
 # and they won't know why! An experienced bash practicioner should know
 # how to deal with this, if it's an issue!
 #if  [[ -z ${PROMPT_COMMAND} ]]; then
-    export PROMPT_COMMAND=did_log_command
+    export PROMPT_COMMAND=dish_log_command
 #fi
 
