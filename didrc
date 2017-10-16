@@ -3,6 +3,9 @@
 did_dir="$HOME/.did"
 did_history_log=did_history
 
+# Keep track of the last directory we were in so that commands like "cd" and "pop" get recorded in the dirctory that they were invoked.
+did_previous_wd="${PWD}"
+
 function did_log_command()
 {
     local status=$?
@@ -13,8 +16,14 @@ function did_log_command()
         # don't store history of the history directory itself
         return
     fi
+    
+    local outdir="${did_dir}${PWD}"  # Assume that the command didn't change the working directory
+    # Now check if the command did actually change the working directory
+    if [[ "${PWD}" != "${did_history_log}" ]]; then
+        outdir="${did_dir}${did_previous_wd}"
+        did_previous_wd=${PWD}
+    fi
 
-    local outdir="$did_dir$(pwd)"
     mkdir -p "$outdir"
    
     local history_file="$outdir/$did_history_log"
