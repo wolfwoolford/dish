@@ -9,15 +9,17 @@ dish_previous_wd="${PWD}"
 function dish_log_command()
 {
     local status=$?
-    local command=$(history +1)
-    if [[ ! -n "$command" ]]; then return; fi
+    local command
+    command=$(history +1)
+    if [[ -z "$command" ]]; then return; fi
     
-    if echo $(pwd) | grep ^$dish_dir 2>&1 > /dev/null; then
+    if pwd | grep ^"$dish_dir" >/dev/null 2>&1; then
         # don't store history of the history directory itself
         return
     fi
     
-    local outdir="${dish_dir}${PWD}"  # Assume that the command didn't change the working directory
+    local outdir
+    outdir="${dish_dir}${PWD}"  # Assume that the command didn't change the working directory
     # Now check if the command did actually change the working directory
     if [[ "${PWD}" != "${dish_history_log}" ]]; then
         outdir="${dish_dir}${dish_previous_wd}"
@@ -30,8 +32,10 @@ function dish_log_command()
     
     
     if [[ -s "$history_file" ]]; then
-        local command_id=$(echo $command | awk '{print $1}')
-        local prev_id=$(tail -n 1 "$history_file" | awk '{print $1}')
+        local command_id
+        command_id=$(echo "$command" | awk '{print $1}')
+        local prev_id
+        prev_id=$(tail -n 1 "$history_file" | awk '{print $1}')
         # repeated/same command
         if [[ $command_id -eq $prev_id ]]; then
             return;
@@ -44,7 +48,8 @@ function dish_log_command()
 # what i did in this directory
 function dish()
 {
-    local outdir="$dish_dir$(pwd)"
+    local outdir
+    outdir="$dish_dir$(pwd)"
     [ ! -d "$outdir"  ] && mkdir -p "$outdir"  # This takes care of a corner case where did is the first command run in a new directory
     local history_file="$outdir/$dish_history_log"
     if [[ -s "$history_file" ]]; then
