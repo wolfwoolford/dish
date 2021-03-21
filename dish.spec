@@ -1,13 +1,12 @@
 %global owner wolfwoolford
-%global srcname dish
-Name: %{srcname}		
-Version: %{version_base}
-Release: %{version_release}%{dist}
+Name: dish
+Version: 1.0
+Release: 1%{dist}
 Summary: Localised bash history logging and searching	
 Source: %{name}-%{version}.tgz
 
 License: MIT	
-URL: https://github.com/%{owner}/dish		
+URL: https://github.com/%{owner}/%{name}
 BuildArch: noarch
 
 %description
@@ -18,15 +17,15 @@ terminals. Dish prints every command ever run in the current directory
 using a simple command : 'dish'
 
 %prep
-%setup -q
+%setup -q -n %{name}
 
 %install
-mkdir -p %{buildroot}%{_sysconfdir}/xdg/%{srcname}/
-install -m 0644 -t %{buildroot}%{_sysconfdir}/xdg/%{srcname}/ dishrc
+mkdir -p %{buildroot}%{_datadir}/%{name}/
+install -m 0644 -t %{buildroot}%{_datadir}/%{name}/ dishrc
 
 %files
 %doc README
-%{_sysconfdir}/xdg/%{srcname}
+%{_datadir}/%{name}
 
 
 %changelog
