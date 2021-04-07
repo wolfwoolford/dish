@@ -12,7 +12,7 @@ Underneath the hood, dish logs command history to a text file in a customisable 
 Typically usage pattern is
 
 host:/home/dave/test_dish
-$ source /etc/xdg/dish/dishrc # or place in .bashrc
+$ source /usr/share/dish/dishrc # or place in .bashrc
 host:/home/dave/test_dish
 $ echo hello world
 hello world
